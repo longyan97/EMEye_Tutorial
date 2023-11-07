@@ -30,7 +30,25 @@ Make sure [your USRP is connected and you successfully ping it](https://files.et
 
 You can go to the JavaGUI/ folder and start TempestSDR_EMEye by running "java -jar JTempestSDR.jar". You will see the GUI pop up. Go to File -> Load USRP (via UHD), and input "--rate=10000000" to set the sampling rate to 10 MHz. Then configure the eavesdropping reconstruction algorithm by setting Disp Width, Real Height, FPS, and Freq based on this table below. 
 
-|| Add the table of parameters for different cameras ||
+| **No.** | **Vendor and Model**                   | **Disp Width** | **Real Height** | **FPS**     | **Freq. (MHz)** |
+|:-------:|:----------------------------:|:--------------:|:---------------:|:-----------:|:---------------:|
+| **1**   | Raspberry Pi Camera Module 1 | 2576           | 1126            | 30.01985577 | 204, 255        |
+| **2**   | Raspberry Pi Camera Module 2 | 2576           | 1790            | 29.55323582 | 457, 570        |
+| **3**   | Raspberry Pi Camera Module 3 | 2166           | 1244            | 30.08283973 | 335, 1015       |
+| **4**   | Google Pixel 1               | 2800           | 1557            | 29.89235398 | 600, 1649       |
+| **5**   | Google Pixel 3               | 6000           | 3055            | 30.0610185  | 515, 680        |
+| **6**   | Samsung S6                   | 5,000          | 3,173           | 30.01527799 | 527, 1054       |
+| **7**   | ZTE Z557                     | 4000           | 2453            | 23.98017526 | 522, 1740       |
+| **8**   | Wyze Cam  Pan 2              | 2300           | 1687            | 20.0071563  | 890, 1185       |
+| **9**   | Xiaomi Dafang IP Camera      | 2567           | 2250            | 15.0008813  | 322, 890        |
+| **10**  | Baidu Xiaodu X9              | 2576           | 1250            | 15.0000375  | 204, 1470       |
+| **11**  | TeGongMao                    | 2576           | 1500            | 15.15164801 | 763, 1144       |
+| **12**  | Goov V9                      | 2000           | 750             | 30.30325987 | 546, 656        |
+| **13**  | QiaoDu                       | 2576           | 2245            | 15.04149722 | 293, 1191       |
+| **14**  | 360 M320 Dashcam             | 2620           | 1818            | 25.00241735 | 450, 1261       |
+| **15**  | Blackview Dashcam            | 2567           | 1196            | 30.09970806 | 155, 1015       |
+
+
 
 Then press the star button. You will see something similar to the figure below. The upper-left window displays the real-time reconstruction of the camera video. 
 
