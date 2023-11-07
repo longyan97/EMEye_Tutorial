@@ -37,7 +37,7 @@ You can go to the JavaGUI/ folder and start TempestSDR_EMEye by running "java -j
 | **3**   | Raspberry Pi Camera Module 3 | 2166           | 1244            | 30.08283973 | 335, 1015       |
 | **4**   | Google Pixel 1               | 2800           | 1557            | 29.89235398 | 600, 1649       |
 | **5**   | Google Pixel 3               | 6000           | 3055            | 30.0610185  | 515, 680        |
-| **6**   | Samsung S6                   | 5,000          | 3,173           | 30.01527799 | 527, 1054       |
+| **6**   | Samsung S6                   | 5000           | 3173            | 30.01527799 | 527, 1054       |
 | **7**   | ZTE Z557                     | 4000           | 2453            | 23.98017526 | 522, 1740       |
 | **8**   | Wyze Cam  Pan 2              | 2300           | 1687            | 20.0071563  | 890, 1185       |
 | **9**   | Xiaomi Dafang IP Camera      | 2567           | 2250            | 15.0008813  | 322, 890        |
