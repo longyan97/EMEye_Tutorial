@@ -1,0 +1,6 @@
+This is a plugin that supports the UHD driver for the USRP devices. In order to compile it, you need to have UHD installed and the corresponding boost libraries.
+
+Compile it with
+
+    make all
+	
