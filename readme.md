@@ -3,9 +3,13 @@
 This repository is the tutorial of eavesdropping on camera video from camera circuit's electromagnetic (EM) leakage, which is presented in the NDSS'24 paper "**EM Eye: Characterizing Electromagnetic Side-channel Eavesdropping on Embedded Cameras**"
 
 
-To enable researchers to quickly reproduce the observations in the paper, we modified the [TempestSDR](https://github.com/martinmarinov/TempestSDR) tool into **TempestSDR_EMEye**. 
+To enable researchers to quickly reproduce the observations in the paper on different camera devices, we modified the [TempestSDR](https://github.com/martinmarinov/TempestSDR) tool into **[TempestSDR_EMEye](#sdr_bom)**. 
 
-##  Bill of Materials 
+To help readers understand how this eavesdropping process works, we also provide a **[MATLAB simulation program](#matlabsimulation_emeye)**.  
+
+
+<a id="sdr_bom"></a>
+##  TempestSDR_EMEye: Bill of Materials 
 
 **Hardware**:
 - A decent laptop
@@ -26,11 +30,13 @@ We suggest keeping the software models the same as ours. If you are compiling Te
 
 Make sure [your USRP is connected and you successfully ping it](https://files.ettus.com/manual/page_usrp2.html). Now the test environment is all set up.
 
-##  Usage 
+##  TempestSDR_EMEye: Usage 
 
 You can go to the JavaGUI/ folder and start TempestSDR_EMEye by running "java -jar JTempestSDR.jar". You will see the GUI pop up. Go to File -> Load USRP (via UHD), and input "--rate=10000000" to set the sampling rate to 10 MHz. Then configure the eavesdropping reconstruction algorithm by setting Disp Width, Real Height, FPS, and Freq based on this table below. 
 
-| **No.** | **Vendor and Model**                   | **Disp Width** | **Real Height** | **FPS**     | **Freq. (MHz)** |
+**Tested Devices:**  
+
+| **No.** | **Vendor and Model**                   | **Disp Width** | **Real Height** | **FPS**     | **Freq. (MHz)** | 
 |:-------:|:----------------------------:|:--------------:|:---------------:|:-----------:|:---------------:|
 | **1**   | Raspberry Pi Camera Module 1 | 2576           | 1126            | 30.01985577 | 204, 255        |
 | **2**   | Raspberry Pi Camera Module 2 | 2576           | 1790            | 29.55323582 | 457, 570        |
@@ -48,12 +54,23 @@ You can go to the JavaGUI/ folder and start TempestSDR_EMEye by running "java -j
 | **14**  | 360 M320 Dashcam             | 2620           | 1818            | 25.00241735 | 450, 1261       |
 | **15**  | Blackview Dashcam            | 2567           | 1196            | 30.09970806 | 155, 1015       |
 
+The configuration parameters are for specific camera modes. 
+- Raspberry Pi cameras were tested while they are in the 1080p mode (-md 1). 
+- Smartphone cameras (rear/main cameras) were tested in the video mode. 
+- Dash cams and home cameras were tested in their default modes. 
+
+**Eavesdropping GUI:**
+
+Press the star button. You will see something similar to the figure below. The upper-left window displays the real-time reconstruction of the camera video. 
+
+![TempestSDR_EMEye Screenshot](./files/GUI.png)
 
 
-Then press the star button. You will see something similar to the figure below. The upper-left window displays the real-time reconstruction of the camera video. 
+<a id="matlab"></a>
+##  MatlabSimulation_EMEye
 
-![alt text](./files/GUI.png)
+The simulation program is in the MatlabSimulation_EMEye/ folder of this repo. 
 
+The program converts a RAW image frame (room.dng) captured by a Raspberry Pi Camera V1 into the bit stream transmitted over the MIPI CSI-2 2-lane interface used by the camera sensor, and then reconstructs the image from the simulated corresponding EM signals of the bit stream. 
 
-
-
+![Simulation Results](./files/SIM.png)
