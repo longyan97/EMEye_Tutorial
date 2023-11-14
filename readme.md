@@ -1,6 +1,6 @@
 # EM Eye 
 
-This repository is the tutorial of eavesdropping on camera video from camera circuit's electromagnetic (EM) leakage, which is presented in the NDSS'24 paper "**EM Eye: Characterizing Electromagnetic Side-channel Eavesdropping on Embedded Cameras**"
+This repository is the tutorial of eavesdropping on camera video from camera circuit's electromagnetic (EM) leakage, which is presented in the NDSS'24 paper "**EM Eye: Characterizing Electromagnetic Side-channel Eavesdropping on Embedded Cameras**" (contact: yanlong@umich.edu)
 
 
 To enable researchers to quickly reproduce the observations in the paper on different camera devices, we modified the [TempestSDR](https://github.com/martinmarinov/TempestSDR) tool into **[TempestSDR_EMEye](#sdr_bom)**. 
