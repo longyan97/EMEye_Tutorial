@@ -3,7 +3,7 @@
 This repository is the tutorial of eavesdropping on camera video from camera circuit's electromagnetic (EM) leakage, which is presented in the NDSS'24 paper "**EM Eye: Characterizing Electromagnetic Side-channel Eavesdropping on Embedded Cameras**" (contact: yanlong@umich.edu)
 
 
-To enable researchers to quickly reproduce the observations in the paper on different camera devices, we modified the [TempestSDR](https://github.com/martinmarinov/TempestSDR) tool into **[TempestSDR_EMEye](#sdr_bom)**. 
+To enable researchers to quickly reproduce the observations in the paper on different camera devices, we modified the [TempestSDR](https://github.com/martinmarinov/TempestSDR) tool into **[TempestSDR_EMEye](#sdr_bom)**. Specifically, range of eavesdropping parameters was adjusted to fit the scope of embedded cameras. 
 
 To help readers understand how this eavesdropping process works, we also provide a **[MATLAB simulation program](#matlabsimulation_emeye)**.  
 
@@ -58,6 +58,8 @@ The configuration parameters are for specific camera modes. You may need to adju
 - Raspberry Pi cameras were tested while they are in the 1080p mode (-md 1). 
 - Smartphone cameras (rear/main cameras) were tested in the video mode. 
 - Dash cams and home cameras were tested in their default modes. 
+
+<span style="color:red">Note that individual devices of the same model may require slightly different parameters than the ones reported in the table due to hardware manufacturing and software version variations. You may need to fine-tune the frequency, FPS, and height parameters to get reconstructions/ best results. We refer you to the [dissertation of Martin Marinov](https://github.com/martinmarinov/TempestSDR/blob/master/documentation/acs-dissertation.pdf), the author of [TempestSDR](https://github.com/martinmarinov/TempestSDR), for more information on how these parameters work.  </span>.
 
 **Eavesdropping GUI:**
 

@@ -225,7 +225,7 @@ public class Main implements TSDRLibrary.FrameReadyCallback, TSDRLibrary.Incomin
 		frmTempestSdr.setFocusableWindowState(true);
 		frmTempestSdr.addKeyListener(keyhook);
 		frmTempestSdr.setResizable(false);
-		frmTempestSdr.setTitle("TempestSDR");
+		frmTempestSdr.setTitle("TempestSDR_EMEye");
 		frmTempestSdr.setBounds(100, 100, 1200, 632);
 		frmTempestSdr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmTempestSdr.addMouseListener(new MouseAdapter() {
