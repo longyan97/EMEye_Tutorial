@@ -59,7 +59,7 @@ The configuration parameters are for specific camera modes. You may need to adju
 - Smartphone cameras (rear/main cameras) were tested in the video mode. 
 - Dash cams and home cameras were tested in their default modes. 
 
-Note that individual devices of the same model may require slightly different parameters than the ones reported in the table due to hardware manufacturing and software version variations. You may need to fine-tune the frequency, FPS, and height parameters to get reconstructions/ best results. We refer you to the [dissertation of Martin Marinov](https://github.com/martinmarinov/TempestSDR/blob/master/documentation/acs-dissertation.pdf), the author of [TempestSDR](https://github.com/martinmarinov/TempestSDR), for more information on how these parameters work. 
+Note that individual devices of the same model may require slightly different parameters than the ones reported in the table due to hardware manufacturing and software version variations. You may need to fine-tune the frequency, FPS, and height, and even the SDR sampling rate to get the best results. The width parameter only controls the scaled aspect ratio of the displayed reconstruction and does not have any impact on the EM reconstruction process.  We refer you to the [dissertation of Martin Marinov](https://github.com/martinmarinov/TempestSDR/blob/master/documentation/acs-dissertation.pdf), the author of [TempestSDR](https://github.com/martinmarinov/TempestSDR), for more information on how these parameters work. 
 
 **Eavesdropping GUI:**
 
