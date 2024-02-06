@@ -38,21 +38,21 @@ You can go to the JavaGUI/ folder and start TempestSDR_EMEye by running "java -j
 
 | **No.** | **Vendor and Model**                   | **Disp Width** | **Real Height** | **FPS**     | **Freq. (MHz)** | 
 |:-------:|:----------------------------:|:--------------:|:---------------:|:-----------:|:---------------:|
-| **1**   | Raspberry Pi Camera Module 1 | 2576           | 1126            | 30.01985577 | 204, 255        |
-| **2**   | Raspberry Pi Camera Module 2 | 2576           | 1790            | 29.55323582 | 457, 570        |
-| **3**   | Raspberry Pi Camera Module 3 | 2166           | 1244            | 30.08283973 | 335, 1015       |
-| **4**   | Google Pixel 1               | 2800           | 1557            | 29.89235398 | 600, 1649       |
-| **5**   | Google Pixel 3               | 6000           | 3055            | 30.0610185  | 515, 680        |
-| **6**   | Samsung S6                   | 5000           | 3173            | 30.01527799 | 527, 1054       |
-| **7**   | ZTE Z557                     | 4000           | 2453            | 23.98017526 | 522, 1740       |
-| **8**   | Wyze Cam  Pan 2              | 2300           | 1687            | 20.0071563  | 890, 1185       |
-| **9**   | Xiaomi Dafang IP Camera      | 2567           | 2250            | 15.0008813  | 322, 890        |
-| **10**  | Baidu Xiaodu X9              | 2576           | 1250            | 15.0000375  | 204, 1470       |
-| **11**  | TeGongMao                    | 2576           | 1500            | 15.15164801 | 763, 1144       |
-| **12**  | Goov V9                      | 2000           | 750             | 30.30325987 | 546, 656        |
-| **13**  | QiaoDu                       | 2576           | 2245            | 15.04149722 | 293, 1191       |
-| **14**  | 360 M320 Dashcam             | 2620           | 1818            | 25.00241735 | 450, 1261       |
-| **15**  | Blackview Dashcam            | 2567           | 1196            | 30.09970806 | 155, 1015       |
+| **1**   | Raspberry Pi Camera Module 1 | 2576           | 1126            | 30.01985577 | 204 or 255        |
+| **2**   | Raspberry Pi Camera Module 2 | 2576           | 1790            | 29.55323582 | 457 or 570        |
+| **3**   | Raspberry Pi Camera Module 3 | 2166           | 1244            | 30.08283973 | 335 or 1015       |
+| **4**   | Google Pixel 1               | 2800           | 1557            | 29.89235398 | 600 or 1649       |
+| **5**   | Google Pixel 3               | 6000           | 3055            | 30.0610185  | 515 or 680        |
+| **6**   | Samsung S6                   | 5000           | 3173            | 30.01527799 | 527 or 1054       |
+| **7**   | ZTE Z557                     | 4000           | 2453            | 23.98017526 | 522 or 1740       |
+| **8**   | Wyze Cam  Pan 2              | 2300           | 1687            | 20.0071563  | 890 or 1185       |
+| **9**   | Xiaomi Dafang IP Camera      | 2567           | 2250            | 15.0008813  | 322 or 890        |
+| **10**  | Baidu Xiaodu X9              | 2576           | 1250            | 15.0000375  | 204 or 1470       |
+| **11**  | TeGongMao                    | 2576           | 1500            | 15.15164801 | 763 or 1144       |
+| **12**  | Goov V9                      | 2000           | 750             | 30.30325987 | 546 or 656        |
+| **13**  | QiaoDu                       | 2576           | 2245            | 15.04149722 | 293 or 1191       |
+| **14**  | 360 M320 Dashcam             | 2620           | 1818            | 25.00241735 | 450 or 1261       |
+| **15**  | Blackview Dashcam            | 2567           | 1196            | 30.09970806 | 155 or 1015       |
 
 The configuration parameters are for specific camera modes. You may need to adjust the parameters when testing other modes. 
 - Raspberry Pi cameras were tested while they are in the 1080p mode (-md 1). 
