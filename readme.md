@@ -20,10 +20,10 @@ To help readers understand how this eavesdropping process works, we also provide
 Note that most hardware models can be changed. For example, the USRP can be replaced by cheaper SDR devices such as RTL-SDR. If you have expertise in software-defined radio, feel free to try different sets of hardware equipment. 
 
 **Software**:
-- Operating System: Ubuntu/macOS
+- Operating System: Ubuntu/macOS/Debian (Bookworm)
 - UHD 4.4.0.0 driver [provided by Ettus Research](https://files.ettus.com/manual/page_install.html)
 - libuhd-dev 4.4.0
-- openjdk-8-jdk
+- openjdk-8-jdk or OpenJDK 17.0.10
 - TempestSDR_EMEye in this repo. Compile it by running "make all JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/" (change the path to your own jdk path) in the the JavaGUI/ folder
 
 We suggest keeping the software models the same as ours. If you are compiling TempestSDR_EMEye with other software environments, you should read the instructions on the [TempestSDR](https://github.com/martinmarinov/TempestSDR) page. 
