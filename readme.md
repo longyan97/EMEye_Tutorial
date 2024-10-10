@@ -1,6 +1,6 @@
 # EM Eye 
 
-This repository is the tutorial of eavesdropping on camera video from camera circuit's electromagnetic (EM) leakage, which is presented in the NDSS'24 paper "**EM Eye: Characterizing Electromagnetic Side-channel Eavesdropping on Embedded Cameras**" (contact: yanlong@umich.edu and/or qhjiang@zju.edu.cn)
+This repository is the tutorial of eavesdropping on camera video from camera circuit's electromagnetic (EM) leakage, which is presented in the NDSS'24 paper "**EM Eye: Characterizing Electromagnetic Side-channel Eavesdropping on Embedded Cameras**" (contact: yanlong@umich.edu and/or qhjiang@zju.edu.cn). Please also refer to [the research project introduction website](https://emeyeattack.github.io/Website/). 
 
 
 To enable researchers to quickly reproduce the observations in the paper on different camera devices, we modified the [TempestSDR](https://github.com/martinmarinov/TempestSDR) tool into **[TempestSDR_EMEye](#sdr_bom)**. Specifically, range of eavesdropping parameters was adjusted to fit the scope of embedded cameras. 
@@ -76,3 +76,18 @@ The simulation program is in the MatlabSimulation_EMEye/ folder of this repo.
 The program converts a RAW image frame (room.dng) captured by a Raspberry Pi Camera V1 into the bit stream transmitted over the MIPI CSI-2 2-lane interface used by the camera sensor, and then reconstructs the image from the simulated corresponding EM signals of the bit stream. 
 
 ![Simulation Results](./files/SIM.png)
+
+
+
+##  Citation Information  
+If you find our results useful to your research, please cite it as follows:
+
+
+```
+@inproceedings{long2024emeye,
+    title={EM Eye: Characterizing Electromagnetic Side-channel Eavesdropping on Embedded Cameras},
+    author={Long, Yan and Jiang, Qinhong and Yan, Chen and Alam, Tobias and Ji, Xiaoyu and Xu, Wenyuan and Fu, Kevin},
+    booktitle={Network and Distributed Systems Security (NDSS) Symposium},
+    year={2024}
+    }
+```
