@@ -11,6 +11,7 @@
 package martin.tempest.gui;
 
 import java.awt.Component;
+import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.Graphics2D;
 import java.awt.Insets;
@@ -49,6 +50,8 @@ import javax.swing.JSlider;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.image.BufferedImage;
 
 import javax.swing.SwingConstants;
@@ -66,6 +69,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.prefs.Preferences;
 
 import javax.swing.JPanel;
@@ -141,6 +145,7 @@ public class Main implements TSDRLibrary.FrameReadyCallback, TSDRLibrary.Incomin
 	private JLabel lblFrames;
 	private JSpinner spAreaAroundMouse;
 	private JOptionPane optpaneDevices;
+	private LayoutScaler layoutScaler;
 
 	private final TSDRSource[] souces = TSDRSource.getAvailableSources();
 	private final JMenuItem[] souces_menues = new JMenuItem[souces.length];
@@ -224,7 +229,7 @@ public class Main implements TSDRLibrary.FrameReadyCallback, TSDRLibrary.Incomin
 		frmTempestSdr.setFocusable(true);
 		frmTempestSdr.setFocusableWindowState(true);
 		frmTempestSdr.addKeyListener(keyhook);
-		frmTempestSdr.setResizable(false);
+		frmTempestSdr.setResizable(true);
 		frmTempestSdr.setTitle("TempestSDR_EMEye");
 		frmTempestSdr.setBounds(100, 100, 1200, 632);
 		frmTempestSdr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -247,6 +252,7 @@ public class Main implements TSDRLibrary.FrameReadyCallback, TSDRLibrary.Incomin
 						fullscreenframe.remove(visualizer);
 						visualizer.setBounds(visualizer_bounds);
 						frmTempestSdr.getContentPane().add(visualizer);
+						if (layoutScaler != null) layoutScaler.rescale();
 						fullscreenframe.setVisible(false);
 						frmTempestSdr.requestFocus();
 					} else {
@@ -303,8 +309,7 @@ public class Main implements TSDRLibrary.FrameReadyCallback, TSDRLibrary.Incomin
 		frame_plotter.setSelectedValue(framerate);
 		
 		menuBar = new JMenuBar();
-		menuBar.setBounds(0, 0, 825, 21);
-		frmTempestSdr.getContentPane().add(menuBar);
+		frmTempestSdr.setJMenuBar(menuBar);
 		
 		JMenu mnFile = new JMenu("File");
 		menuBar.add(mnFile);
@@ -473,7 +478,7 @@ public class Main implements TSDRLibrary.FrameReadyCallback, TSDRLibrary.Incomin
 		spHeight.setModel(new SpinnerNumberModel(height_initial, 1, 10000, 1));
 				
 		tglbtnLockHeightAndFramerate = new JToggleButton("L");
-		tglbtnLockHeightAndFramerate.setBounds(765, 123, 25, 22);
+		tglbtnLockHeightAndFramerate.setBounds(795, 123, 25, 22);
 		frmTempestSdr.getContentPane().add(tglbtnLockHeightAndFramerate);
 		tglbtnLockHeightAndFramerate.setToolTipText("Link the framerate with the height");
 		tglbtnLockHeightAndFramerate.setSelected(heightlock_enabled);
@@ -890,7 +895,7 @@ public class Main implements TSDRLibrary.FrameReadyCallback, TSDRLibrary.Incomin
 		
 		// dialog frame
 		deviceframe = optpaneDevices.createDialog(frmTempestSdr, "");
-		deviceframe.setResizable(false);
+		deviceframe.setResizable(true);
 		
 		deviceframe.getContentPane().add(optpaneDevices);
 		
@@ -928,6 +933,16 @@ public class Main implements TSDRLibrary.FrameReadyCallback, TSDRLibrary.Incomin
 
 
 		System.out.println( "GUI Ready" );
+
+		layoutScaler = new LayoutScaler(frmTempestSdr.getContentPane());
+		frmTempestSdr.addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentResized(ComponentEvent e) {
+				if (layoutScaler != null) {
+					layoutScaler.rescale();
+				}
+			}
+		});
 	}
 	
 	// private void onVideoModeSelected(final int modeid) {
@@ -1784,4 +1799,50 @@ public class Main implements TSDRLibrary.FrameReadyCallback, TSDRLibrary.Incomin
 	private JCheckBoxMenuItem chckbxmntmHighQualityRendering;
 	private JCheckBoxMenuItem chckbxmntmLowpassBeforeSync;
 	private JCheckBoxMenuItem chckbxmntmAutoCorrectAfterProc;
+
+	private static final class LayoutScaler {
+
+		private final Container container;
+		private final Map<Component, Rectangle> baseBounds = new HashMap<>();
+		private final int baseWidth;
+		private final int baseHeight;
+
+		private LayoutScaler(final Container container) {
+			this.container = container;
+			int width = 1;
+			int height = 1;
+
+			for (final Component component : container.getComponents()) {
+				final Rectangle bounds = component.getBounds();
+				baseBounds.put(component, new Rectangle(bounds));
+				width = Math.max(width, bounds.x + bounds.width);
+				height = Math.max(height, bounds.y + bounds.height);
+			}
+
+			baseWidth = width;
+			baseHeight = height;
+		}
+
+		private void rescale() {
+			final int currentWidth = Math.max(container.getWidth(), 1);
+			final int currentHeight = Math.max(container.getHeight(), 1);
+			final double xRatio = currentWidth / (double) baseWidth;
+			final double yRatio = currentHeight / (double) baseHeight;
+
+			for (final Map.Entry<Component, Rectangle> entry : baseBounds.entrySet()) {
+				final Component component = entry.getKey();
+				final Rectangle original = entry.getValue();
+
+				component.setBounds(
+					(int) Math.round(original.x * xRatio),
+					(int) Math.round(original.y * yRatio),
+					(int) Math.round(original.width * xRatio),
+					(int) Math.round(original.height * yRatio)
+				);
+			}
+
+			container.revalidate();
+			container.repaint();
+		}
+	}
 }
